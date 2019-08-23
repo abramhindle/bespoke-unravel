@@ -1,0 +1,47 @@
+UNRAVEL - A Decipherment Toolkit
+http://www-i6.informatik.rwth-aachen.de/unravel/
+
+## Dependencies
+
+Additional scripts for installing dependencies are available here:
+https://github.com/mnuhn/setupenv
+
+Most importantly, you will need a patched version of openfst, such that it is
+uses google-flags and google logging (compat.h). See above's repo for more
+details.
+
+Make sure that you have setup your environment properly, such that all
+dependencies are met. Here are some variables that might play a role:
+
+LD_LIBRARY_PATH, LDFLAGS, CPPFLAGS, CXXFLAGS, CXX, CC, ...
+
+
+## Installation
+```
+./autogen.sh
+cd codec
+make
+cd ..
+make
+```
+
+## Build Options
+optional flags (e.g. ./configure --without-openmp):
+* --without-openmp (when compiling with clang on mac, that doesn't have openmp support)
+* --without-fix-ubuntu (when compoling on mac)
+
+this e.g. works on my mac
+```
+./autogen.sh --without-openmp --without-fixubuntu
+cd codec
+make
+cd ..
+make
+```
+
+## Other
+The code in the ./codec/ directory was written by Taro Watanabe.
+He was so kind to allow us shipping this with UNRAVEL.
+
+The code in the ./src/cdec/ directory was taken from the cdec decoder:
+http://cdec-decoder.org/
