@@ -1,3 +1,6 @@
 [submodule "docker/kenlm"]
 	path = docker/kenlm
 	url = https://github.com/kpu/kenlm.git
+[submodule "docker/setupenv"]
+	path = docker/setupenv
+	url = git@github.com:abramhindle/setupenv.git
