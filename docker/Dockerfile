@@ -11,6 +11,7 @@ SHELL ["/bin/bash", "-c"]
 # RUN (cd /root && git clone https://github.com/abramhindle/setupenv
 # setupenv is a submodule here it should be added by ADD
 RUN (cd /root/setupenv && bash -x install)
+RUN apt -y install  autoconf autogen automake pkg-config libtool
 RUN (cd /root/setupenv && source ./setupenv `./latest` && \
-    cd /root/unravel-0.2/ && ./autogen.sh && cd codec && make && cd .. && make )
+    cd /root/unravel-0.2/ && ./autogen.sh && cd codec && make && cd .. && make install)
 
