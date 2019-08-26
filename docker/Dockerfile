@@ -14,4 +14,4 @@ RUN (cd /root/setupenv && bash -x install)
 RUN apt -y install  autoconf autogen automake pkg-config libtool
 RUN (cd /root/setupenv && source ./setupenv `./latest` && \
     cd /root/unravel-0.2/ && ./autogen.sh && cd codec && make && cd .. && make install)
-
+CMD (cd /root/setupenv && source ./setupenv `./latest` && cd /root/unravel-0.2/ && /bin/bash)
