@@ -3,8 +3,13 @@
 	touch .built
 
 build: .built
-
-shell: build
-	docker run -it unravel /bin/bash
-dshell: build
-	docker run -it unravel
+DOCKERFLAGS=-v $(shell pwd)/input:/root/input 
+DOCKERFLAGS+= -v $(shell pwd)/output:/root/ouput 
+input:
+	mkdir input
+output:
+	mkdir output
+shell: build input output
+	docker run $(DOCKERFLAGS) -it unravel /bin/bash
+dshell: build input output
+	docker run $(DOCKERFLAGS) -it unravel
